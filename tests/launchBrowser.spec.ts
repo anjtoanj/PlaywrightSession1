@@ -29,7 +29,7 @@ test(`To launch different browsers`,async () => {
    //Enter the username
    await page.locator("[name='username']").fill("Thanmayi321@gmail.com");
    //Enter the password
-   await page.locator("[name='pw']").fill("PonniSidh@123");
+   await page.locator("[name='pw']").fill("*******");
    //Click Login button
    await page.locator("[name='Login']").click();
    //Verify the title of the page (using page.title() method)
