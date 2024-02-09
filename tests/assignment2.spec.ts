@@ -1,5 +1,5 @@
 // -----------------
-//1. MergeContact (Alert and windowHandle)
+//1. MergeContact (Alert and windowHandle) --DONE!
 // -----------		  
 // 1. Launch URL "http://leaftaps.com/opentaps/control/login"
 // 2. Enter UserName and Password Using Id Locator
@@ -15,8 +15,9 @@
 // 12. Accept the Alert
 // 13. Verify the title of the page
 import { test,chromium,expect } from "@playwright/test";
+import exp from "constants";
 test(`Test on MergeContact (Alert and windowHandle)`,async ({page,context})=>{
-// 1. Launch URL 
+// 1. Launch URL  
 await page.goto("http://leaftaps.com/opentaps/control/login");
 
 // 2. Enter UserName and Password Using Id Locator
@@ -71,7 +72,7 @@ expect (pageTitle).toContain("Merge Contacts");
 // ---------------------------
 
 // 1. Launch ServiceNow application -https://dev217372.service-now.com
-test.only(`Test on ServiceNow -Ordering Mobile(Frames)`, async ({page,context}) => {
+test(`Test on ServiceNow -Ordering Mobile(Frames)`, async ({page,context}) => {
     // 2. Login with valid credentials 
     await page.goto("https://dev189559.service-now.com");
     await page.fill('#user_name',"admin");
@@ -95,16 +96,10 @@ test.only(`Test on ServiceNow -Ordering Mobile(Frames)`, async ({page,context}) 
     await frame2.locator("[src='233979be77d211105e3db2a07b5a990d.iix']").click();
     await page.waitForTimeout(2000);
     // 6. Choose yes option in lost or broken iPhone
-    // Check the checkbox
-    const optionQstn1= frame2.locator("[aria-label='Is this a replacement for a lost or broken iPhone?']");
-    const optionYes1 = optionQstn1.locator('label:below(:text("Yes"))');
-
-    await page.evaluate('document.frame2.locator("label:below(:text("Yes"))").checked=true');
-
-
+    // Check the checkbox 
+    //***************facing issues in servicenow appln .recheck on 10thFeb */
+    await page.check('#section1 >> input[value="Yes"]');
     await page.waitForTimeout(2000);
-
-   // (input:below(:text("Username")))
    
     // 7. Enter phonenumber as 99 in original phonenumber field
     // 8. Select Unlimited from the dropdown in Monthly data allowance
@@ -115,14 +110,14 @@ test.only(`Test on ServiceNow -Ordering Mobile(Frames)`, async ({page,context}) 
 
  /*
   
-    Homework: Window
+    Homework: Window - DONE !
     Login to "https://login.salesforce.com/"
     Enter Username, Password and click Login
     ClicK 'Learn More' button under Mobile Publisher 
     Click 'Confirm' on the new window
     Verify and validate the title, url of the page
 */
-test(`test on handling new window`, async({page/*fixture*/,context})=>{
+test.only(`test on handling new window`, async({page/*fixture*/,context})=>{
 
     //Login to "https://login.salesforce.com/"
     await page.goto("https://login.salesforce.com/");
@@ -135,15 +130,15 @@ test(`test on handling new window`, async({page/*fixture*/,context})=>{
     //ClicK 'Learn More' button under Mobile Publisher 
     const [newWindow2] = await Promise.all([
         context.waitForEvent("page"), //Create a promise in your code to tell that this will resolve into a new page    
-        await page.locator("[title='Learn More']").click(),
-          //Click 'Confirm' on the new window
+        await page.locator("[title='Learn More']").click(),        
 
     ])
     await newWindow2.waitForLoadState('load');
+     //Click 'Confirm' on the new window
     await newWindow2.locator("[onclick='goAhead()']").click();
       
     //Verify and validate the title, url of the page
-    const newPageTitle = await newWindow2.title();
-    expect(newPageTitle).toContainEqual("Create and Publish Custom-Branded Mobile Apps - Salesforce.com");
+    await expect(newWindow2).toHaveTitle("Create and Publish Custom-Branded Mobile Apps - Salesforce.com");
+    await expect(newWindow2).toHaveURL("https://www.salesforce.com/products/platform/products/mysalesforce/");
 
 })
