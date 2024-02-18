@@ -1,0 +1,26 @@
+/**
+ * Assignment:1 (Use Postman) - DONE 
+ * Endpoint URL: https://instance_Url/services/data/v58.0/sobjects/Account * 
+ * https://enhanceconsultancy-dev-ed.develop.my.salesforce.com/services/data/v58.0/sobjects/Account
+ * 
+ * Set global variables and pass them to all the requests
+ * 1. Generate an access token
+ * 2. Create a new Account with mandatory fields
+ * 3. Edit the account name and fill the Account Number, Type, Industry,Rating,
+ * Phone, Ownership and Address Information
+ * 4. Verify that the fields are updated
+ */
+/**
+ * Assignment:2 (API Integration with Playwright)
+ * Endpoint URL: https://instance_Url/services/data/v58.0/sobjects/Account
+ * https://enhanceconsultancy-dev-ed.develop.my.salesforce.com/services/data/v58.0/sobjects/Account
+ * 
+ * Set global variables and pass them to all the requests
+ * 1. Generate an access token
+ * 2. Create a new Account with mandatory fields
+ * 3. Edit the account name and fill the Account Number, Type, Industry,Rating,
+ * Phone, Ownership and Address Information
+ * 4. Verify that the fields are updated
+ * 
+ * Note: Verify the status code, response time, response body and status text for all the requests
+ */
