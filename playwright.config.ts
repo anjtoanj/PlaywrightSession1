@@ -42,9 +42,21 @@ export default defineConfig({
       name: 'chromium',
       use: { ...devices['Desktop Chromium'],viewport: null,
       launchOptions: {
-        args: ["--start-maximized"]
-        } 
-       }, },
+        args: ["--start-maximized"]        } 
+       }, 
+      },
+      // // to run the test in different devices -or emulators
+      // {
+      //   name: 'Mobile Chrome',
+      //   use: {...devices['Galaxy S8']}
+      // },
+      // {
+      //    name:'Mobile Safari',
+      //    use : {
+      //     ...devices['iPhone 12 Mini']
+      //    }
+      // }
+      /*
   
 
     // {

@@ -72,7 +72,7 @@ expect (pageTitle).toContain("Merge Contacts");
 // ---------------------------
 
 // 1. Launch ServiceNow application -https://dev217372.service-now.com
-test(`Test on ServiceNow -Ordering Mobile(Frames)`, async ({page,context}) => {
+test.only(`Test on ServiceNow -Ordering Mobile(Frames)`, async ({page,context}) => {
     // 2. Login with valid credentials 
     await page.goto("https://dev189559.service-now.com");
     await page.fill('#user_name',"admin");
@@ -117,7 +117,7 @@ test(`Test on ServiceNow -Ordering Mobile(Frames)`, async ({page,context}) => {
     Click 'Confirm' on the new window
     Verify and validate the title, url of the page
 */
-test.only(`test on handling new window`, async({page/*fixture*/,context})=>{
+test(`test on handling new window`, async({page/*fixture*/,context})=>{
 
     //Login to "https://login.salesforce.com/"
     await page.goto("https://login.salesforce.com/");
