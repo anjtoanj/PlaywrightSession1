@@ -4,7 +4,8 @@ test('Prinitng all console messages', async({page})=>{
         console.log(`Messages >> ${message.type()} and ${message.text()}`)
     })
 
-    await page.goto("https://www.redbus.in/");
+  //  await page.goto("https://www.redbus.in/");
+    await page.goto("https://www.amazon.in/");
     await page.waitForTimeout(3000);
 
 })
