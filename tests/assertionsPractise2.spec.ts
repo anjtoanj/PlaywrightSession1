@@ -31,14 +31,14 @@ test.only('Test to assert disabled button',async({page})=>{
 test('Test to assert assignment2',async({page})=>{
 
     // https://www.leafground.com/button.xhtml
-    page.goto("https://www.leafground.com/button.xhtml");
+    page.goto("");
 // - Click on the "Basic Checkbox.”  
 
 // - Click on the "Notification Checkbox."
 // - Verify that the expected message is displayed.
 // - Click on your favorite language (assuming it's related to checkboxes).
 // - Click on the "Tri-State Checkbox."
-// - Verify which tri-state option has been chosen.
+// - Verify which tri-state ophttps://www.leafground.com/button.xhtmltion has been chosen.
 // - Click on the "Toggle Switch."
 // - Verify that the expected message is displayed.
 // - Verify if the Checkbox is disabled.
